@@ -1,0 +1,50 @@
+/* -------------------------------------------------- App_Plantilla => styles */
+/* Proyecto Plantilla Django */
+
+
+/* ----------------------------------- Variables Globales y Estilos Generales */
+root {
+    --fuente: 'Roboto';
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--fuente);
+}
+
+
+
+/* ----------------------------------------------------------- plantilla base */
+.base-menu {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.base-menu-link {
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px;
+}
+
+
+
+/* ---------------------------------------------------------- view => portada */
+.portada {
+    display: flex;
+    margin: 3% auto 0 auto;
+    height: 35vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.portada-img {
+    height: 80%;
+    border-radius: 50%;
+}
+
+.portada-texto {
+    text-align: center;
+}
+

@@ -1,0 +1,22 @@
+<!-- ---------------------------------------------- App_Plantilla => portada -->
+
+{% extends "App_Plantilla/base.html" %}
+
+{% block title %}Proyecto Plantilla{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <main>
+        <figure class="portada">
+            <img src="{% static 'App_Plantilla/img/GUScode-2.svg' %}" alt="Avatar GUScode" class="portada-img" >
+        </figure>
+        <div class="portada-texto">
+            <h1>GUScode</h1>
+            <h3>Proyecto Plantilla Django</h3>
+            <p>Plantilla básica para proyectos en Django. Ejemplos sencillos de las bases y organización</p>
+        </div>
+    </main>
+
+{% endblock %}
