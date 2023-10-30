@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App_Plantilla',
+    'App_Formulario',
 ]
 
 MIDDLEWARE = [

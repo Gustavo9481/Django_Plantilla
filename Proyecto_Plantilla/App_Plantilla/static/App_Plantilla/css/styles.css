@@ -1,22 +1,45 @@
-/* -------------------------------------------------- App_Plantilla => styles */
-/* Proyecto Plantilla Django */
+/* ------------------------------------------------ Proyecto Plantilla Django */
+/* 
+Plantilla de ejemplo para guía futura de proyectos Django 
+
+Estructura:
+    - Variables Globales y Estilos Generales
+    - App Plantilla
+        - plantilla base
+        - view portada
+    - App Formulario
+*/
 
 
 /* ----------------------------------- Variables Globales y Estilos Generales */
 root {
-    --fuente: 'Roboto';
+    --fuente-family: 'Roboto', sans-serif;
+    --fuente-color: hsla(0, 0%, 19%, 1);
+    --fondo-body: hsla(0, 0%, 86%, 1);
+    --fondo-sesion: hsla(0, 0%, 100%, 1);
+    --boton-color: hsla(212, 76%, 55%, 1);
+    --boton-color-active: hsla(212, 76%, 36%, 1);
+    --centrado: center;
 }
 
 * {
     box-sizing: border-box;
-    font-family: var(--fuente);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;;
+    color: hsla(0, 0%, 19%, 1);
 }
 
 
+/* ------------------------------------------------------------ App_Plantilla */
 
-/* ----------------------------------------------------------- plantilla base */
+/* -------------------------------------------- plantilla base */
 .base-menu {
-    display:flex;
+    display: flex;
+    position: fixed;
+    background-color: hsla(0, 0%, 86%, 1);
+    width: 100%;
+    bottom: 10px;
     justify-content: center;
     align-items: center;
 }
@@ -29,7 +52,7 @@ root {
 
 
 
-/* ---------------------------------------------------------- view => portada */
+/* ------------------------------------------- view => portada */
 .portada {
     display: flex;
     margin: 3% auto 0 auto;
@@ -48,3 +71,103 @@ root {
     text-align: center;
 }
 
+
+/* ----------------------------------------------------------- App Formulario */
+.caja-sesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    background-color: hsla(0, 0%, 86%, 1);
+}
+
+.sesion {
+    background-color: hsla(0, 0%, 100%, 1);
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    width: clamp(300px, 30%, 600px);
+    min-width: 300px;
+    height: 60%;
+    margin-top: 15px;
+    padding: 2em;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.registro {
+    height: 95%;
+}
+
+
+input {
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid hsla(0, 0%, 86%, 1);
+}
+
+input:focus {
+    outline: none;
+}
+
+.boton {
+    background-color: hsla(212, 76%, 55%, 1);
+    color: var(--fondo-sesion);
+    font-size: 1.2em;
+    margin-top: 5px;
+    border: none;
+}
+
+.boton:active {
+    background-color: var(--boton-color-active);
+}
+
+
+.caja-input {
+    position: relative;
+}
+
+input:focus+.input-label,
+input:not(:placeholder-shown)+.input-label {
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: grey;
+    transform: translateY(7px);
+    transition: transform .5s, color .3s;
+}
+
+.input-label-2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: grey;
+}
+
+.boton-2 {
+    display: block;
+    background-color: var(--fondo-sesion);
+    font-size: 0.9em;
+    color: grey;
+    border: solid 1px var(--fondo-body);
+    padding: 5px;
+    margin-bottom: 1.5em;
+}
+
+.boton-2:hover {
+    background-color: var(--boton-color);
+    color: var(--fondo-sesion);
+}
+
+.boton-2:active {
+    background-color: var(--boton-color-active);
+}

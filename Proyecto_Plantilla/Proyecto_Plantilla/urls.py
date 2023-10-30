@@ -18,7 +18,10 @@ Including another URLconf
 """ --------------------------------------------- Proyecto_Plantilla => urls """
 """                 Urls registradas:
 - App_Plantilla
+    - portada
     - vista_1
+- App_Formulario
+    - formulario
 """
 
 from django.contrib import admin
@@ -27,4 +30,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('App_Plantilla.urls')),
+    path('', include('App_Formulario.urls')),
 ]
