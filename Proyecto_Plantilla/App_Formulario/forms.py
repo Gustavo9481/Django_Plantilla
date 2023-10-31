@@ -2,10 +2,11 @@
 """
 Formularios:
 - FormularioForm: campos comunes, model => Formulario
+- Formulario_2Form: campos imagen, contraseñas y checkbox, model => Formulario_2
 """
 
 from django import forms
-from . models import Formulario
+from . models import Formulario, Formulario_2
 
 
 # --------------------------------------------------------------- FormularioForm
@@ -24,4 +25,20 @@ class FormularioForm(forms.ModelForm):
             'altura',
             'fecha_nacimiento',
             'roles'
+        ]
+
+
+
+# ------------------------------------------------------------- Formulario_2Form
+# formulario plantilla con campos de imagen, contraseñas y checkbox
+
+class Formulario_2Form(forms.ModelForm):
+    class Meta:
+        model = Formulario_2
+        fields = [
+            'usuario',
+            'foto',
+            'password_1',
+            'password_2',
+            'suscrito'
         ]

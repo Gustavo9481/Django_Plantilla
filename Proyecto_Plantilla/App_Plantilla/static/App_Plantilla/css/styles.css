@@ -30,6 +30,9 @@ root {
     color: hsla(0, 0%, 19%, 1);
 }
 
+body {
+    background-color: hsla(0, 0%, 86%, 1);
+}
 
 /* ------------------------------------------------------------ App_Plantilla */
 
@@ -45,9 +48,9 @@ root {
 }
 
 .base-menu-link {
-    font-weight: 600;
+    /*font-weight: 600;*/
     text-decoration: none;
-    padding: 5px;
+    padding: 7px 15px 7px 15px;
 }
 
 
@@ -107,10 +110,16 @@ input {
     border: none;
     font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid hsla(0, 0%, 86%, 1);
+    color: grey;
 }
 
 input:focus {
     outline: none;
+}
+
+.formulario-input-2 {
+    font-family: 'Roboto', sans-serif;
+    color: grey;
 }
 
 .boton {

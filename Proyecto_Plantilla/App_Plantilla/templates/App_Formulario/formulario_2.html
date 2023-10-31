@@ -1,0 +1,42 @@
+{% extends "App_Plantilla/base.html" %}
+
+{% block title %}Formulario_2{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main class="caja-sesion">
+    <div class="sesion registro">
+        <h3>Formulario 2</h3>
+        <form method="POST">
+        {% csrf_token %}
+            <div class="caja-input">
+                <input type="text" name="usuario" placeholder="" required>
+                <label for="usuario" class="input-label">Usuario</label>
+            </div>
+            <div class="caja-input">
+                <input type="text" name="foto" placeholder="">
+                <label for="foto" class="input-label">Cargar foto de Perfil</label>
+            </div>
+            <div class="caja-input">
+                <input type="password" name="password_1" placeholder="" required>
+                <label for="password_1" class="input-label">Ingrese una contraseña</label>
+            </div>
+            <div class="caja-input">
+                <input type="password" name="password_2" placeholder="" required>
+                <label for="password_2" class="input-label">Confirme la contraseña</label>
+            </div>
+            <div class="caja-input">
+                <label for="suscrito" class="input-label-2">Quiero recibir más información</label>
+                <input type="checkbox" name="suscrito">
+                
+            </div>
+
+            <input type="submit" value="Registrar" class="boton">
+        </form>
+    </div>
+</main>
+
+
+
+{% endblock %}

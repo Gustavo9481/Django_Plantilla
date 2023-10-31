@@ -2,6 +2,7 @@
 """
 Modelos:
 - Formulario: tabla para farmulario plantilla de campos comunes
+- Formularios: tabla com campos de imagen,contraseñas y checkbox
 """
 
 from django.db import models
@@ -38,3 +39,22 @@ class Formulario(models.Model):
         ('admin', 'Administrador'),
     ]
     roles = models.CharField(max_length=7, choices=OPCIONES_ROL, default='usuario')
+
+
+
+# ----------------------------------------------------------------- Formulario_2
+# Modelo de tabla con campo de imagen y contraseñas
+
+class Formulario_2(models.Model):
+
+    usuario = models.CharField(max_length=50, unique=True)
+    
+    # ----------------------------------------------- Campo de Imagen
+    foto = models.ImageField(upload_to="App_Formulario", null=True, blank=True)
+    
+    # ----------------------------------------- Campos de contraseñas
+    password_1 = models.CharField(max_length=50)
+    password_2 = models.CharField(max_length=50)
+    
+    # -------------------------------------------- Campos de checkbox
+    suscrito = models.BooleanField(default=False)

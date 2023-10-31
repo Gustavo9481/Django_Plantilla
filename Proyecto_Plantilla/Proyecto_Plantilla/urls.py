@@ -22,6 +22,7 @@ Including another URLconf
     - vista_1
 - App_Formulario
     - formulario
+    - formulario_2
 """
 
 from django.contrib import admin
