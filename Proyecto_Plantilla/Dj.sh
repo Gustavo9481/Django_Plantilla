@@ -47,6 +47,7 @@ dict[proyecto]=project
 dict[migraciones]="python manage.py makemigrations"
 dict[migrar]="python manage.py migrate"
 dict[aplicacion]=app
+dict[ssh]="eval $(ssh-agent -s) ; ssh-add ~/id_rsa"
 
 
 
