@@ -14,7 +14,7 @@ function project(){
     echo "Nombre del Proyecto: ${yellow}[ usar prefijo Proyecto_ ]${blanco}"
     read nombre_project
     django-admin startproject ${nombre_project}
-    echo "Creado el proyecto ${turquoise}${nombre_project}${blanco}"
+    echo "Creado el proyecto ${turquoise}${nombre_project}  ${blanco}"
 }
 
 
@@ -24,7 +24,7 @@ function app(){
     echo "Nombre de nueva Aplicación: ${yellow}[ usar el prefijo App_ ]${blanco}"
     read nombre_app
     python manage.py startapp ${nombre_app}
-    echo "Creada la aplicación ${turquoise}${nombre_app}${blanco}"
+    echo "Creada la aplicación ${turquoise}${nombre_app}  ${blanco}"
 }
 
 
@@ -38,7 +38,7 @@ function git_upgrade(){
     git add .
     git commit -m "${mensaje}"
     git push
-    echo "Repositorio Actualizado"
+    echo "${turquoise}Repositorio Actualizado   ${blanco}"
 }
 
 
@@ -82,4 +82,3 @@ if [[ ${dict[$tarea]} ]]; then
 else
     echo "La instrucción no es correcta"
 fi
-
