@@ -4,7 +4,6 @@
 # Ubicar archivo en la carpeta de Proyecto General (core)
 
 
-
 # -------------------------------------------------------------------- Funciones
 # funciones para manage.py que soliciten parámetros
 
@@ -58,8 +57,16 @@ function git_upgrade(){
     git add .
     git commit -m "${mensaje}"
     git push
-    echo "${turquoise}Repositorio Actualizado   ${blanco}"
+    echo "${turquoise}# -------------------------------------------------- Repositorio Actualizado  ${blanco}"
 }
+
+function ent(){
+    atras
+    source venv/bin/activate
+    cd Proyecto_Plantilla
+    echo "${green}# --------------------------------------------------- Entorno Virtual Activado 󰌠${blanco}"
+}
+
 
 
 
@@ -75,6 +82,7 @@ grey="\e[0;30m\033[1m"
 
 
 
+
 # ------------------------------------- instrucciones para el Gestor de Proyecto
 # Diccionario contenedor de instrucciones para el gestor
 # dict[instruccion]=tarea
@@ -83,10 +91,13 @@ declare -A dict
 dict[lista]=instrucciones
 dict[run]=runserver
 dict[proyecto]=project
+dict[aplicacion]=app
 dict[migraciones]="python manage.py makemigrations"
 dict[migrar]="python manage.py migrate"
-dict[aplicacion]=app
 dict[git]=git_upgrade
+dict[activar]=ent
+
+
 
 
 # --------------------------------------------------------- Ejecución del Script
