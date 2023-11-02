@@ -13,7 +13,7 @@ function project(){
     # Crea el proyecto solicitando el nombre del mismo
     echo "Nombre del Proyecto: ${yellow}[ usar prefijo Proyecto_ ]${blanco}"
     read nombre_project
-    eval "django-admin startproject ${nombre_project}"
+    django-admin startproject ${nombre_project}
     echo "Creado el proyecto ${turquoise}${nombre_project}${blanco}"
 }
 
@@ -23,7 +23,7 @@ function app(){
     # Crea aplicaciones solicitando el nombre
     echo "Nombre de nueva Aplicación: ${yellow}[ usar el prefijo App_ ]${blanco}"
     read nombre_app
-    eval "python manage.py startapp ${nombre_app}"
+    python manage.py startapp ${nombre_app}
     echo "Creada la aplicación ${turquoise}${nombre_app}${blanco}"
 }
 
