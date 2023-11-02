@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 # ----------------------------------------------------------- Apps Instaladas ☑️
 # App_Plantilla
+# App_Formulario
 
 INSTALLED_APPS = [
     'django.contrib.admin',

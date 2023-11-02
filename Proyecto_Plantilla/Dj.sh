@@ -3,10 +3,12 @@
 # GESTOR DE PROYECTOS DJANGO
 # Ubicar archivo en la carpeta de Proyecto General (core)
 
+
+
 # -------------------------------------------------------------------- Funciones
 # funciones para manage.py que soliciten parámetros
 
-# ---------------------------------------------------------------------- project
+# project
 function project(){
     # Crea el proyecto solicitando el nombre del mismo
     echo "Nombre del Proyecto: ${yellow}[ usar prefijo Proyecto_ ]${blanco}"
@@ -16,7 +18,7 @@ function project(){
 }
 
 
-# -------------------------------------------------------------------------- app
+# app
 function app(){
     # Crea aplicaciones solicitando el nombre
     echo "Nombre de nueva Aplicación: ${yellow}[ usar el prefijo App_ ]${blanco}"
@@ -24,6 +26,21 @@ function app(){
     eval "python manage.py startapp ${nombre_app}"
     echo "Creada la aplicación ${turquoise}${nombre_app}${blanco}"
 }
+
+
+# git
+function git_upgrade(){
+    # Actualiza repositorio GitHub del proyecto
+    echo "Mensaje de commit:"
+    read mensaje
+    eval $(ssh-agent -s); 
+    ssh-add ~/id_rsa; 
+    git add .
+    git commit -m "${mensaje}"
+    git push
+    echo "Repositorio Actualizado"
+}
+
 
 
 # ----------------------------------------------------------- Colores para texto
@@ -37,6 +54,7 @@ purple="\e[0;35m\033[1m"
 grey="\e[0;30m\033[1m"
 
 
+
 # ------------------------------------- instrucciones para el Gestor de Proyecto
 # Diccionario contenedor de instrucciones para el gestor
 # dict[instruccion]=tarea
@@ -47,10 +65,7 @@ dict[proyecto]=project
 dict[migraciones]="python manage.py makemigrations"
 dict[migrar]="python manage.py migrate"
 dict[aplicacion]=app
-dict[ssh]="eval $(ssh-agent -s) ; ssh-add ~/id_rsa"
-
-
-
+dict[git]=git_upgrade
 
 
 # --------------------------------------------------------- Ejecución del Script
