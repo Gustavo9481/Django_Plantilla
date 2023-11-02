@@ -57,14 +57,14 @@ function git_upgrade(){
     git add .
     git commit -m "${mensaje}"
     git push
-    echo "${turquoise}# -------------------------------------------------- Repositorio Actualizado  ${blanco}"
+    echo "${grey}------------------------------${purple} Repositorio Actualizado  ${blanco}"
 }
 
 function ent(){
     atras
     source venv/bin/activate
     cd Proyecto_Plantilla
-    echo "${green}# --------------------------------------------------- Entorno Virtual Activado 󰌠${blanco}"
+    echo -e "${grey}-------------------------------${green} Entorno Virtual Activado 󰌠${blanco}"
 }
 
 
@@ -73,6 +73,7 @@ function ent(){
 # ----------------------------------------------------------- Colores para texto
 blanco="\033[0m\e[0m"
 green="\e[0;32m\033[1m"
+green_fondo="\e[0;30;42m\033[1m"
 red="\e[0;31m\033[1m"
 blue="\e[0;34m\033[1m"
 yellow="\e[0;33m\033[1m"
