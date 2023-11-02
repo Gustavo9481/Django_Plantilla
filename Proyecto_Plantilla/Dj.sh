@@ -52,11 +52,13 @@ function git_upgrade(){
     # Actualiza repositorio GitHub del proyecto
     echo "Mensaje de commit:"
     read mensaje
+    cd /home/guscode/Code/Notas/Django_Plantilla
     eval $(ssh-agent -s); 
     ssh-add ~/id_rsa; 
     git add .
     git commit -m "${mensaje}"
     git push
+    cd Proyecto_Plantilla
     echo "${grey}------------------------------${purple} Repositorio Actualizado  ${blanco}"
 }
 
