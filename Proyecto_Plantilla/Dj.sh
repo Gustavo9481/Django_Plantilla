@@ -8,6 +8,26 @@
 # -------------------------------------------------------------------- Funciones
 # funciones para manage.py que soliciten parámetros
 
+# instrucciones
+function instrucciones(){
+    echo "${turquoise}Listado de Instrucciones:"
+    echo "${yellow}run            => ${blanco}correr el servidor 󱓟"
+    echo "${yellow}proyecto       => ${blanco}crear nuevo proyecto "
+    echo "${yellow}aplicacion     => ${blanco}crear nueva aplicación "
+    echo "${yellow}migraciones    => ${blanco}ejecutar makemigrations"
+    echo "${yellow}migrar         => ${blanco}hacer migraciones"
+    echo "${yellow}git            => ${blanco}hacer respaldo en repositorio GitHub  "
+    ./Dj.sh
+
+}
+
+# runserver
+function runserver(){
+    echo "${green}Corriendo Servidor 󱓟 ${blanco}"
+    python manage.py runserver
+
+}
+
 # project
 function project(){
     # Crea el proyecto solicitando el nombre del mismo
@@ -60,7 +80,8 @@ grey="\e[0;30m\033[1m"
 # dict[instruccion]=tarea
 
 declare -A dict
-dict[run]="python manage.py runserver"
+dict[lista]=instrucciones
+dict[run]=runserver
 dict[proyecto]=project
 dict[migraciones]="python manage.py makemigrations"
 dict[migrar]="python manage.py migrate"
@@ -72,6 +93,7 @@ dict[git]=git_upgrade
 # Presentación del Gestor al usuario y solicitud de la instrucción
 
 echo -e ${turquoise} GUScode ${blanco} Gestor de proyectos Django 
+echo -e Ingrese ${red}lista${blanco} para ver las opciones
 echo -e Instrucción ${turquoise}󰒊${blanco}  
 read tarea
 
