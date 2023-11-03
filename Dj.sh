@@ -1,15 +1,16 @@
 #! /bin/zsh
 
 # GESTOR DE PROYECTOS DJANGO
-# Ubicar archivo en la carpeta de Proyecto General (core)
+# Ubicar archivo en la carpeta repositorio general del proyecto
 
 
 # -------------------------------------------------------------------- Funciones
-# funciones para manage.py que soliciten parámetros
 
 # instrucciones
 function instrucciones(){
+    # Muestra lista de instrucciones que se pueden ejecutar
     echo "${turquoise}Listado de Instrucciones:"
+    echo "${yellow}inicio         => ${blanco}crear entorno"
     echo "${yellow}run            => ${blanco}correr el servidor 󱓟"
     echo "${yellow}proyecto       => ${blanco}crear nuevo proyecto "
     echo "${yellow}aplicacion     => ${blanco}crear nueva aplicación "
@@ -20,24 +21,47 @@ function instrucciones(){
 
 }
 
-# runserver
+
+# --------------------------------- Funciones en folder root
+# Comandos que deben ejecutarse en la ruta Folder Root
+# Crea entorno con carpeta venv
+# entorno => root
+function entorno(){
+    # Crea el entorno necesario para el proyecto
+    eval ${root_folder}
+    python -m pip install -upgrade pip
+    sudo pacman -S python-virtualenv
+    python -m virtualenv venv  
+    echo -e "${grey}-----------------------------------${turquoise} Entorno Creado (venv)󰌠${blanco}"
+    source venv/bin/activate
+    echo -e "${grey}-------------------------------${green} Entorno Virtual Activado 󰌠${blanco}"
+    pip install Django
+    echo -e "${grey}-------------------------------${green} Django ha sido instalado ${blanco}"   
+}
+
+
+# project => root
+function project(){
+    # Crea el proyecto solicitando el nombre del mismo
+    echo "Nombre del Proyecto: ${yellow}[ usar prefijo Proyecto_ ]${blanco}"
+    read nombre_project
+    eval ${root_folder}
+    django-admin startproject ${nombre_project}
+    echo "Creado el proyecto ${turquoise}${nombre_project} ${blanco}"
+}
+
+
+# runserver => proyecto
 function runserver(){
     echo "${green}Corriendo Servidor 󱓟 ${blanco}"
     python manage.py runserver
 
 }
 
-# project
-function project(){
-    # Crea el proyecto solicitando el nombre del mismo
-    echo "Nombre del Proyecto: ${yellow}[ usar prefijo Proyecto_ ]${blanco}"
-    read nombre_project
-    django-admin startproject ${nombre_project}
-    echo "Creado el proyecto ${turquoise}${nombre_project}  ${blanco}"
-}
 
 
-# app
+
+# app => proyecto
 function app(){
     # Crea aplicaciones solicitando el nombre
     echo "Nombre de nueva Aplicación: ${yellow}[ usar el prefijo App_ ]${blanco}"
@@ -47,25 +71,33 @@ function app(){
 }
 
 
-# git
+# git => root
 function git_upgrade(){
     # Actualiza repositorio GitHub del proyecto
     echo "Mensaje de commit:"
     read mensaje
-    cd /home/guscode/Code/Notas/Django_Plantilla
+    eval ${root_folder}
     eval $(ssh-agent -s); 
     ssh-add ~/id_rsa; 
     git add .
     git commit -m "${mensaje}"
     git push
-    cd Proyecto_Plantilla
-    echo "${grey}------------------------------${purple} Repositorio Actualizado  ${blanco}"
+    eval ${project_folder}
+    echo -e "${grey}------------------------------${purple} Repositorio Actualizado  ${blanco}"
 }
 
+
+# git_init
+function git_init(){
+
+}
+
+# ent => root
 function ent(){
-    atras
+    # Activa el entorno virtual y retorna a la acrpeta del proyecto
+    eval ${root_folder}
     source venv/bin/activate
-    cd Proyecto_Plantilla
+    eval ${project_folder}
     echo -e "${grey}-------------------------------${green} Entorno Virtual Activado 󰌠${blanco}"
 }
 
@@ -84,6 +116,10 @@ purple="\e[0;35m\033[1m"
 grey="\e[0;30m\033[1m"
 
 
+# ----------------------------------------------------------- Rutas del Proyecto
+root_folder="cd /home/guscode/Code/Notas/Django_Plantilla"
+project_folder="cd /home/guscode/Code/Notas/Django_Plantilla/Proyecto_Plantilla"
+
 
 
 # ------------------------------------- instrucciones para el Gestor de Proyecto
@@ -92,6 +128,7 @@ grey="\e[0;30m\033[1m"
 
 declare -A dict
 dict[lista]=instrucciones
+dict[inicio]=entorno
 dict[run]=runserver
 dict[proyecto]=project
 dict[aplicacion]=app
