@@ -5,7 +5,7 @@ Vistas de ejemplo para App
 - vista_1: uso de plantilla html, método render()
 """
 
-from django.shortcuts import render
+from django.shortcuts import 
 
 # Create your views here.
 
